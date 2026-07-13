@@ -17,7 +17,6 @@ async function insertPanel() {
 }
 
 // グローバル変数
-let geminiapi = null;
 let ssppUI = null;
 let sspp_sizeSelector = null;
 let sspp_textSelector = null;

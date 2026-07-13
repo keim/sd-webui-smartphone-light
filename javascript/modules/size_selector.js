@@ -3,7 +3,8 @@ export class SizeSelector {
     constructor(uiController) {
         this.uiController = uiController;
         this._el = null;
-        this._widthSelect = null;
+        this._widthButtons = [];
+        this._selectedWidthButton = null;
         this._blockInput = null;
         this._aspectButtons = [];
         this._selectedAspectButton = null;
@@ -17,14 +18,17 @@ export class SizeSelector {
         this._el = document.getElementById("sspp-size-selector");
         if (!this._el) return;
 
-        this._widthSelect = document.getElementById("sspp-width-select");
+        this._widthButtons = Array.from(this._el.querySelectorAll("button.sspp-width-option"));
         this._blockInput = document.getElementById("sspp-block-input");
         this._aspectCanvas = document.getElementById("sspp-aspect-canvas");
         this._aspectButtons = Array.from(this._el.querySelectorAll("button.sspp-aspect-button"));
 
-        if (this._widthSelect) {
-            this._widthSelect.addEventListener("change", () => this._onWidthSelectChange());
-        }
+        this._selectedWidthButton = this._widthButtons.find((button) => button.classList.contains("selected")) ?? this._widthButtons[0] ?? null;
+        this._setActiveWidthButton(this._selectedWidthButton);
+
+        this._widthButtons.forEach((button) => {
+            button.addEventListener("click", () => this._onWidthButtonClick(button));
+        });
         if (this._blockInput) {
             this._blockInput.addEventListener("input", () => this._onBlockSizeInput());
         }
@@ -54,8 +58,9 @@ export class SizeSelector {
         this._applyAspectSelection();
     }
 
-    _onWidthSelectChange() {
+    _onWidthButtonClick(button) {
         if (!this._selectedAspectButton || !this._blockInput) return;
+        this._setActiveWidthButton(button);
         this._updateSquareWidthAndBlockSize();
         this._blockInput.value = this._blockSize;
         this._applyAspectSelection();
@@ -68,9 +73,18 @@ export class SizeSelector {
     }
 
     _updateSquareWidthAndBlockSize() {
-        const [squareWidth, blockSize] = (this._widthSelect?.value ?? "0,1").split(",").map(Number);
+        const [squareWidth, blockSize] = (this._selectedWidthButton?.dataset.value ?? "0,1").split(",").map(Number);
         this._squareWidth = squareWidth;
         this._blockSize = blockSize;
+    }
+
+    _setActiveWidthButton(button) {
+        this._widthButtons.forEach((widthButton) => {
+            const isActive = widthButton === button;
+            widthButton.classList.toggle("selected", isActive);
+            widthButton.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+        this._selectedWidthButton = button;
     }
 
     _updateBlockSize() {

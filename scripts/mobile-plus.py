@@ -91,9 +91,6 @@ def _offline_response():
 def on_ui_settings():
     section = ("mobile_plus", "Mobile+")
     shared.opts.add_option(
-        "gemini_api_key",
-        shared.OptionInfo("", "Gemini API Key", section=section))
-    shared.opts.add_option(
         "mobile_plus_replace_favicon",
         shared.OptionInfo(True, "Setup a1111 favicon", section=section))
     shared.opts.add_option(
@@ -126,12 +123,6 @@ def on_ui_tabs():
         gr.Markdown("Customize WebUI for mobile devices. Available only when the client width < 768px.")
         gr.HTML(panel_html)
 
-        # Hidden elements to store API key and prompt history
-        gr.Textbox(
-            value = lambda: shared.opts.gemini_api_key,
-            visible = False,
-            elem_id = "sspp_gemini_api_key"
-        )
         gr.Textbox(
             value = get_prompt_history,
             visible = False,

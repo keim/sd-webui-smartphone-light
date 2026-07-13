@@ -14,9 +14,10 @@ html[sspp-mobile-panel="true"] .contain {
     pointer-events: none;
     position: fixed;
     flex-direction: column;
-    left: 0px;
     right: 0px;
     bottom: 0px;
+    width: 100%;
+    max-width: 768px;;
     z-index: 9999;
 }
 .sspp-panel {
@@ -167,12 +168,17 @@ html[sspp-mobile-panel="true"] .contain {
     gap: 0.2rem;
     flex: 1 1 0;
 }
+#sspp-size-selector .sspp-size-input-group.sspp-width-group {
+    flex: 3 1 0;
+}
+#sspp-size-selector .sspp-size-input-group.sspp-block-group {
+    flex: 1 1 0;
+}
 #sspp-size-selector .sspp-size-input-group label {
     font-size: 0.7rem;
     color: #555;
     font-weight: bold;
 }
-#sspp-size-selector .sspp-size-input-group select,
 #sspp-size-selector .sspp-size-input-group input[type="number"] {
     pointer-events: auto;
     box-sizing: border-box;
@@ -184,6 +190,31 @@ html[sspp-mobile-panel="true"] .contain {
     padding: 0 0.4rem;
     background-color: #fff;
     color: #333;
+}
+#sspp-width-select {
+    pointer-events: auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 0.2rem;
+}
+#sspp-width-select .sspp-width-option {
+    pointer-events: auto;
+    flex: initial;
+    width: 100%;
+    height: 2rem;
+    min-height: 0;
+    padding: 0 0.3rem;
+    font-size: 0.65rem;
+    background-image: none;
+    background-color: #fff;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#sspp-width-select .sspp-width-option.selected {
+    background-color: #ccc !important;
 }
 
 #sspp-size-aspect-selector {

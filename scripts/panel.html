@@ -32,19 +32,19 @@
                 </div>
             </div>
             <div class="sspp-size-input-row">
-                <div class="sspp-size-input-group">
-                    <label for="sspp-width-select">Square width</label>
-                    <select id="sspp-width-select">
-                        <option value="512,64">512px(SD1.5)</option>
-                        <option value="768,64">768px</option>
-                        <option value="960,40">960px(HD)</option>
-                        <option value="1024,64">1024px(SDXL)</option>
-                        <option value="1280,64" selected>1280px</option>
-                        <option value="1440,40">1440px(FullHD)</option>
-                        <option value="1600,40">1600px</option>
-                    </select>
+                <div class="sspp-size-input-group sspp-width-group">
+                    <label>Square width</label>
+                    <div id="sspp-width-select" class="sspp-width-button-group" role="group" aria-label="Square width">
+                        <button type="button" class="sspp-width-option" data-value="512,64" aria-pressed="false">512px(SD1.5)</button>
+                        <button type="button" class="sspp-width-option" data-value="768,64" aria-pressed="false">768px</button>
+                        <button type="button" class="sspp-width-option" data-value="960,40" aria-pressed="false">960px(HD)</button>
+                        <button type="button" class="sspp-width-option" data-value="1024,64" aria-pressed="false">1024px(SDXL)</button>
+                        <button type="button" class="sspp-width-option selected" data-value="1280,64" aria-pressed="true">1280px</button>
+                        <button type="button" class="sspp-width-option" data-value="1440,40" aria-pressed="false">1440px(FullHD)</button>
+                        <button type="button" class="sspp-width-option" data-value="1600,40" aria-pressed="false">1600px</button>
+                    </div>
                 </div>
-                <div class="sspp-size-input-group">
+                <div class="sspp-size-input-group sspp-block-group">
                     <label for="sspp-block-input">Block size</label>
                     <input type="number" id="sspp-block-input" value="64" min="1" />
                 </div>

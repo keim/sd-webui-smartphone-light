@@ -10,6 +10,9 @@
     height: 1.6rem;
     padding: 0px 16px;
 }
+#settings > div.tab-nav button {
+    height: auto;
+}
 #tabs {
     background-color: var(--background-fill-primary);
     margin-top: 1.6rem;
@@ -109,9 +112,11 @@
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
+    border-color: var(--checkbox-border-color);
 }
 #img2img_settings fieldset > .wrap > label.selected {
-    background: var(--button-secondary-background-fill) !important;
+    border-width: 0 0 2px 0 !important;
+    border-color: var(--checkbox-border-color-selected) !important;
 }
 #img2img_settings fieldset > .wrap > label > input {
     display: none !important;
@@ -216,7 +221,8 @@
 .contain[uitype="size"] #sspp-size-selector {
     display: flex;
 }
-.contain[uitype="textsnippet"] #sspp-text-selector {
+.contain[uitype="textsnippet"] #sspp-text-selector,
+.contain[uitype="checkpoints"] #sspp-text-selector {
     display: flex;
 }
 .contain[uitype="clip-t2i"] #sspp-clip-selector {
@@ -392,8 +398,13 @@
 .contain[uitype="checkpoints"] #tabs>.tab-nav {
     display: none;
 }
+.contain[uitype="checkpoints"] #img2img_denoising_strength {
+    display: block;
+}
 .contain[uitype="submenu"] #txt2img_prompt_row,
 .contain[uitype="submenu"] #img2img_prompt_row,
+.contain[uitype="checkpoints"] #txt2img_prompt_row,
+.contain[uitype="checkpoints"] #img2img_prompt_row,
 .contain[uitype="lora"] #txt2img_prompt_row,
 .contain[uitype="lora"] #img2img_prompt_row,
 .contain[uitype="textsnippet"] #txt2img_prompt_row,
