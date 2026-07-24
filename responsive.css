@@ -221,8 +221,7 @@
 .contain[uitype="size"] #sspp-size-selector {
     display: flex;
 }
-.contain[uitype="textsnippet"] #sspp-text-selector,
-.contain[uitype="checkpoints"] #sspp-text-selector {
+.contain[uitype="textsnippet"] #sspp-text-selector {
     display: flex;
 }
 .contain[uitype="clip-t2i"] #sspp-clip-selector {
@@ -322,7 +321,9 @@
 .contain[uitype="default"] #img2img_results,
 .contain[uitype="default"] #txt2img_prompt_row,
 .contain[uitype="default"] #txt2img_cfg_scale,
+.contain[uitype="default"] #txt2img_seed_row,
 .contain[uitype="default"] #img2img_prompt_row,
+.contain[uitype="default"] #img2img_seed_row,
 .contain[uitype="default"] #img2img_cfg_scale {
     display: flex;
 }
@@ -398,13 +399,8 @@
 .contain[uitype="checkpoints"] #tabs>.tab-nav {
     display: none;
 }
-.contain[uitype="checkpoints"] #img2img_denoising_strength {
-    display: block;
-}
 .contain[uitype="submenu"] #txt2img_prompt_row,
 .contain[uitype="submenu"] #img2img_prompt_row,
-.contain[uitype="checkpoints"] #txt2img_prompt_row,
-.contain[uitype="checkpoints"] #img2img_prompt_row,
 .contain[uitype="lora"] #txt2img_prompt_row,
 .contain[uitype="lora"] #img2img_prompt_row,
 .contain[uitype="textsnippet"] #txt2img_prompt_row,
